@@ -2,7 +2,7 @@
 
 pragma solidity ^0.7;
 
-contract Vote {
+contract Voting1 {
     
     struct candidator {
         string name;
@@ -32,7 +32,7 @@ contract Vote {
     }
     
     // constructor
-    constructor() public {
+    constructor() {
         owner = msg.sender;
         live = true; // not yet voting
         
