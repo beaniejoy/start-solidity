@@ -22,7 +22,7 @@ $ node_modules/.bin/ganache-cli
 
 ## 2. Make Contract Code
 
-[`Voting2.sol`](https://github.com/hanbinleejoy/start-solidity/Voting2.sol) Contract code is gonna be deployed.
+[`Voting2.sol`](https://github.com/hanbinleejoy/start-solidity/blob/main/src/Voting2.sol) Contract code is gonna be deployed.
 
 <br>
 
@@ -61,7 +61,7 @@ connect with ganache server
 // read bytecode file and convert to string 
 > bytecode = fs.readFileSync('./Voting2_sol_Voting2.bin').toString()
 // read abi json file and convert to json object
-> abi = JSON.parse(fs.readFileSync('./Voting2_sol_Voting2.bin').toString())
+> abi = JSON.parse(fs.readFileSync('./Voting2_sol_Voting2.abi').toString())
 ```
 
 ```js
@@ -71,11 +71,11 @@ connect with ganache server
 `web3.eth.Contract`: make it easy to interact with smart contracts on the ethereum blockchain
 
 ```js
-deployedContract.deploy({
+> deployedContract.deploy({
   data: bytecode,
   arguments: [['Joy', 'Beanie','Luv'].map(name => web3.utils.asciiToHex(name))]
 }).send({
-  from: '0x8f5d3e5148C6B701aD14263BF6BB50C6ca44137c',
+  from: 'address_of_account',
   gas: 1500000,
   gasPrice: web3.utils.toWei('0.00003', 'ether')
 }).then((newContractInstance) => {
@@ -99,4 +99,20 @@ occur new log in ganache server about publishing new Contract
 <br>
 
 ## Interact with Contract
+
+```js
+> deployedContract.methods
+```
+check all the methods of the deployed Contract.
+
+```js
+> deployedContract.methods.voteForCandidate('Joy').send({from: 'address of sender'}).then((f) => console.log(f))
+```
+Vote for the candidate Joy
+
+```js
+> deployedContract.methods.totalVotesFor('Joy').call().then((count) => console.log(count))
+```
+check the increased number of votes
+
 

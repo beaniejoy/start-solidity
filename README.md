@@ -2,9 +2,9 @@
 
 Let's get started with developing DApp (Ethereum - solidity)
 
-<br>
-
-- web3
+- OS: ubuntu linux
+- node.js
+- web3.js
 - truffle
 - ganache
 - solc
@@ -64,9 +64,11 @@ $ node_modules/.bin/ganache-cli
 ```
 - [Github ganache-cli](https://github.com/trufflesuite/ganache-cli)
 
+<br>
+
 ## How to deploy contract?
 
-[Deploy the Solidity Contract](https://github.com/hanbinleejoy/start-solidity/Voting2.sol)
+[Deploy the Solidity Contract](https://github.com/hanbinleejoy/start-solidity/blob/main/_deploy_contract.md)
 
 <br>
 
